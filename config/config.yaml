@@ -2,18 +2,18 @@ artifacts-root: artifacts # this is the root directory where all the artifacts w
 
 data_ingestion : 
   root_dir : artifacts/data_ingestion
-  # our data is already available locally in the folder data/winequality-red.csv
-  source_URL : "data/tele_churn.csv"
-  local_data_file : artifacts/data_ingestion/data.csv # path where the ingested data will be stored
+  source_URL : "data/telecom_churn.csv"
+  local_data_file : artifacts/data_ingestion/data.csv
 
 data_validation :
   root_dir : artifacts/data_validation
   local_data_file : artifacts/data_ingestion/data.csv
-  STATUS_FILE : artifacts/data_validation/status.txt # file to store status of data validation like whether it is validated or not
+  STATUS_FILE : artifacts/data_validation/status.txt
 
 data_transformation :
   root_dir : artifacts/data_transformation
   data_path : artifacts/data_ingestion/data.csv
+  preprocessor_path : artifacts/data_transformation/preprocessor.pkl
 
 model_trainer :
   root_dir : artifacts/model_trainer

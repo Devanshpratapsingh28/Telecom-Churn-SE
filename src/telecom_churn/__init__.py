@@ -18,4 +18,4 @@ logging.basicConfig(
     ]
 )
 
-logger = logging.getLogger("datascience")
+logger = logging.getLogger("telecom_churn")

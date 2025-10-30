@@ -1,6 +1,7 @@
-from src.datascience.constants import *
-from src.datascience.utils.common import read_yaml_file, create_directories
-from src.datascience.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
+from pathlib import Path
+from src.telecom_churn.constants import *
+from src.telecom_churn.utils.common import read_yaml_file, create_directories
+from src.telecom_churn.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
 
 class ConfigManager:
     def __init__(self,
@@ -53,25 +54,35 @@ class ConfigManager:
         return data_transformation_config 
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
-        config = self.config['model_trainer'] # or self.config.model_trainer
-        params = self.params['ElasticNet']
+        config = self.config['model_trainer']
+        params = self.params['RandomForest']
         tar_col = self.schema['TARGET_COLUMN']['name']
-        create_directories([config.root_dir]) # Here we are putting root dir inside a list because our create_directories function accepts a list of paths
+        create_directories([config.root_dir])
         model_trainer_config = ModelTrainerConfig(
             root_dir = config.root_dir,
             train_data_path = config.train_data_path,
             test_data_path = config.test_data_path,
             model_name = config.model_name,
-            alpha = params.alpha,
-            l1_ratio = params.l1_ratio,
+            n_estimators = params.n_estimators,
+            max_depth = params.max_depth,
+            min_samples_split = params.min_samples_split,
             target_column = tar_col
         )
         return model_trainer_config 
 
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
-        config=self.config.model_evaluation
-        params=self.params.ElasticNet
-        schema=self.schema.TARGET_COLUMN
+        config = self.config['model_evaluation']
+        params = self.params['RandomForest']
+        target_col = self.schema['TARGET_COLUMN']['name']
 
         create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=Path(config.root_dir),
+            test_data_path=Path(config.test_data_path),
+            model_path=Path(config.model_path),
+            all_params=params,
+            metrics_file_path=Path(config.metrics_file_path),
+            target_column=target_col
+        )
         return model_evaluation_config 

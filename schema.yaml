@@ -1,0 +1,13 @@
+COLUMNS:
+  AccountWeeks: int64
+  ContractRenewal: category
+  DataUsage: float64
+  CustServCalls: int64
+  DayMins: float64
+  DayCalls: int64
+  MonthlyCharge: float64
+  OverageFee: float64
+  RoamMins: float64
+
+TARGET_COLUMN:
+  name: Churn
