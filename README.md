@@ -18,3 +18,17 @@
 6. Update the components
 7. Update the pipeline 
 8. Update the main.py
+
+
+# Steps : 
+1. Create venv:
+`conda create -p venv python==3.10 -y`
+2. Actiavate venv:
+`conda activate venv/`
+3. Install Dependencies:
+`pip install -r requirements.txt`
+4. run command to start : 
+`python app.py`
+5. Hit the URL that will be display in terminal.
+6. After hitting URL ,first add /train in it in browser and hit enter.
+7. Then come back to previous URL and enter data to predict churn.
