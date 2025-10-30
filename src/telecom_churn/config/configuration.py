@@ -49,7 +49,8 @@ class ConfigManager:
         create_directories([config.root_dir]) # Here we are putting root dir inside a list because our create_directories function accepts a list of paths
         data_transformation_config = DataTransformationConfig(
             root_dir = config.root_dir,
-            data_path=config.data_path
+            data_path=config.data_path,
+            preprocessor_path=config.preprocessor_path
         )
         return data_transformation_config 
 
@@ -63,8 +64,7 @@ class ConfigManager:
             train_data_path = config.train_data_path,
             test_data_path = config.test_data_path,
             model_name = config.model_name,
-            n_estimators = params.n_estimators,
-            max_depth = params.max_depth,
+            random_state = params.random_state,
             min_samples_split = params.min_samples_split,
             target_column = tar_col
         )

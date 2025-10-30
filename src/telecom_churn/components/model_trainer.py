@@ -20,7 +20,7 @@ class ModelTrainer:
 
         rf = RandomForestClassifier(
             random_state=self.config.random_state,
-            n_estimators=self.min_samples_split
+            min_samples_split=self.config.min_samples_split
         )
         rf.fit(train_x, train_y)
 

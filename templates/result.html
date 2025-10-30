@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prediction Result</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="glass-container">
+      <h2>Telecom Churn Prediction Result</h2>
+      <p class="result">
+        {% if prediction == 1 %}
+          The customer is <span class="churn">likely to churn</span>.
+        {% else %}
+          The customer is <span class="no-churn">not likely to churn</span>.
+        {% endif %}
+      </p>
+      <a href="{{ url_for('homepage') }}">Go Back</a>
+    </div>
+  </body>
+</html>

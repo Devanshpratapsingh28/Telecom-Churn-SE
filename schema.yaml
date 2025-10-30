@@ -1,6 +1,6 @@
 COLUMNS:
   AccountWeeks: int64
-  ContractRenewal: category
+  ContractRenewal: int64
   DataUsage: float64
   CustServCalls: int64
   DayMins: float64
@@ -11,3 +11,4 @@ COLUMNS:
 
 TARGET_COLUMN:
   name: Churn
+

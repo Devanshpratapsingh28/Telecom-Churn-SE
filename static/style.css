@@ -1,0 +1,145 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #6a85b6, #bac8e0);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.glass-container {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 35px 45px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: all 0.3s ease;
+}
+
+/* Hide scrollbar by default */
+.glass-container::-webkit-scrollbar {
+  width: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show scrollbar only when scrolling */
+.glass-container:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+/* Scrollbar styling */
+.glass-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.glass-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+h2 {
+  margin-bottom: 25px;
+  color: #f9f9f9;
+  font-weight: 600;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+input[type="submit"] {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.result {
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.churn {
+  color: #ff4d4d;
+}
+
+.no-churn {
+  color: #00e687;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+a:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.error {
+  color: #ff4d4d;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .glass-container {
+    padding: 30px 25px;
+    width: 90%;
+    max-height: 80vh;
+  }
+
+  input[type="text"], input[type="submit"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .result {
+    font-size: 17px;
+  }
+}

@@ -19,15 +19,13 @@ class DataTransformation:
         # read data
         df = pd.read_csv(self.config.data_path)
 
-        for col in ['Churn', 'ContractRenewal', 'DataPlan']:
+        for col in ['Churn', 'ContractRenewal']:
             if col in df.columns:
                 try:
                     df[col] = df[col].astype('category')
                 except Exception:
                     pass
 
-        if 'DataPlan' in df.columns:
-            df = df.drop(columns=['DataPlan'])
 
         if 'Churn' not in df.columns:
             raise Exception("Target column 'Churn' not found in data")

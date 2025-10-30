@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Telecom Churn Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="glass-container">
+      <h2>Telecom Customer Churn Prediction</h2>
+      <form action="/predict_datapoint" method="post">
+        <input type="text" name="AccountWeeks" placeholder="Account Weeks" required />
+        <input type="text" name="ContractRenewal" placeholder="Contract Renewal (0 or 1)" required />
+        <input type="text" name="DataUsage" placeholder="Data Usage" required />
+        <input type="text" name="CustServCalls" placeholder="Customer Service Calls" required />
+        <input type="text" name="DayMins" placeholder="Day Minutes" required />
+        <input type="text" name="DayCalls" placeholder="Day Calls" required />
+        <input type="text" name="MonthlyCharge" placeholder="Monthly Charge" required />
+        <input type="text" name="OverageFee" placeholder="Overage Fee" required />
+        <input type="text" name="RoamMins" placeholder="Roaming Minutes" required />
+        <input type="submit" value="Predict Churn" />
+      </form>
+      {% if results is not none %}
+      <p class="result">
+        {% if results == 1 %}
+          The customer is <span class="churn">likely to churn</span>.
+        {% else %}
+          The customer is <span class="no-churn">not likely to churn</span>.
+        {% endif %}
+      </p>
+      {% elif error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
