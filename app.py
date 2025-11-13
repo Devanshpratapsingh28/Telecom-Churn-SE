@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import os
 import numpy as np
+import pandas as pd
 from src.telecom_churn.pipeline.prediction_pipeline import PredictionPipeline
 
 app = Flask(__name__)
@@ -28,8 +29,20 @@ def predict_datapoint():
             OverageFee = float(request.form['OverageFee'])
             RoamMins = float(request.form['RoamMins'])
 
-            data = np.array([AccountWeeks, ContractRenewal, DataUsage, CustServCalls,
-                             DayMins, DayCalls, MonthlyCharge, OverageFee, RoamMins]).reshape(1, -1)
+            # Create DataFrame with proper column names matching training data
+            data = pd.DataFrame({
+                'AccountWeeks': [AccountWeeks],
+                'DataPlan': [0],  # Add DataPlan if it's in training data
+                'DataUsage': [DataUsage],
+                'CustServCalls': [CustServCalls],
+                'DayMins': [DayMins],
+                'DayCalls': [DayCalls],
+                'MonthlyCharge': [MonthlyCharge],
+                'OverageFee': [OverageFee],
+                'RoamMins': [RoamMins],
+                'ContractRenewal': [ContractRenewal]
+            })
+            
             obj = PredictionPipeline()
             prediction = obj.predict(data)
             return render_template('index.html', results=int(prediction[0]))
