@@ -1,7 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #6a85b6, #bac8e0);
-  color: #fff;
+  color: #2a1f4f;
   margin: 0;
   padding: 0;
   display: flex;
@@ -29,7 +29,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Scrollbar hidden unless hovered */
+/* Custom Scrollbar */
 .glass-container::-webkit-scrollbar {
   width: 8px;
   opacity: 0;
@@ -51,11 +51,11 @@ body {
 
 h2 {
   margin-bottom: 25px;
-  color: #f9f9f9;
+  color: #1a1233;
   font-weight: 600;
 }
 
-/* Inputs and dropdown (common style) */
+/* Inputs and dropdowns */
 input[type="text"],
 input[type="number"],
 select {
@@ -67,7 +67,7 @@ select {
   font-size: 16px;
   outline: none;
   background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: #2a1f4f;
   box-sizing: border-box;
   appearance: none;
   -webkit-appearance: none;
@@ -77,13 +77,13 @@ select {
 /* Placeholder & dropdown text */
 input::placeholder,
 select {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(42, 31, 79, 0.75);
 }
 
-/* Custom dropdown arrow */
+/* Dropdown arrow */
 select {
-  background-image: linear-gradient(45deg, transparent 50%, #fff 50%),
-                    linear-gradient(135deg, #fff 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, #2a1f4f 50%),
+                    linear-gradient(135deg, #2a1f4f 50%, transparent 50%);
   background-position: calc(100% - 20px) calc(1em + 2px),
                        calc(100% - 15px) calc(1em + 2px);
   background-size: 5px 5px, 5px 5px;
@@ -96,7 +96,6 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 input[type=number] {
   -moz-appearance: textfield;
 }
@@ -104,7 +103,7 @@ input[type=number] {
 /* Submit button */
 input[type="submit"] {
   background-color: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  color: #2a1f4f;
   padding: 12px;
   margin-top: 20px;
   border: none;
@@ -119,7 +118,7 @@ input[type="submit"]:hover {
   background-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Results and messages */
+/* Result messages */
 .result {
   margin-top: 25px;
   font-size: 18px;
@@ -134,11 +133,12 @@ input[type="submit"]:hover {
   color: #00e687;
 }
 
+/* Links */
 a {
   display: inline-block;
   margin-top: 20px;
   text-decoration: none;
-  color: #fff;
+  color: #2a1f4f;
   background: rgba(255, 255, 255, 0.25);
   padding: 10px 20px;
   border-radius: 10px;
@@ -149,6 +149,7 @@ a:hover {
   background: rgba(255, 255, 255, 0.45);
 }
 
+/* Error text */
 .error {
   color: #ff4d4d;
   font-weight: bold;
